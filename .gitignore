@@ -10,3 +10,16 @@ Thumbs.db
 desktop.ini
 # Log files
 *.log
+
+#Editor & IDE
+.vscode/
+.idea/
+*.swp
+
+#OS metadata
+.DS_Store
+Thumbs.db
+
+#Logs & build cache
+*.log
+.cache/
