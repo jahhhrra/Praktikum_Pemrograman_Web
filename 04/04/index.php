@@ -15,7 +15,7 @@ $total_semua = count_total_mahasiswa();
 
 // Percobaan 4-4 Langkah 2
 $keyword = isset($_GET['search']) ? trim($_GET['search']) : '';
-$daftar_mahasiswa = get_all_mahasiswa($keywords);
+$daftar_mahasiswa = get_all_mahasiswa($keyword);
 
 $total_semua = count_total_mahasiswa();
 $total_tampil = count($daftar_mahasiswa);
@@ -122,11 +122,7 @@ require_once __DIR__ . '/includes/header.php';
                 <?php else: ?>
 
                     <!-- Percobaan 4-2 Langkah 3 -->
-                     <td><strong><?= htmlspecialchars($mhs['npm']) ?></strong></td>
-                     <td><?= htmlspecialchars($mhs['name']) ?></td>
-                     <td><span class="badge"><?= htmlspecialchars($mhs['program_studi']) ?></span></td>
-                     <td><?=htmlspecialchars($mhs['angkatan'])?></td>
-                     <td><a href="mailto:<?= htmlspecialchars($mhs['email']) ?>" class="link-email"><?= htmlspecialchars($mhs['email']) ?></a></td>
+                     
                     <?php foreach ($daftar_mahasiswa as $index => $mhs): ?>
                         <tr>
                             <td><?= $index + 1 ?></td>
@@ -140,10 +136,9 @@ require_once __DIR__ . '/includes/header.php';
                             <td><a href="mailto:<?= $mhs['email'] ?>" class="link-email"><?= $mhs['email'] ?></a></td>
                             <td>
                                 <!-- Percobaan 4-2 Langkah 5 -->
-                                 <a href="proses_hapus.php?id=<?= urlencode($mhs['npm']) ?>"
+                                 <a href="proses_hapus.php?npm=<?= urlencode($mhs['npm']) ?>"
                                  class="btn btn-danger btn-sm"
-                                 onclick="return confirm('Apakah Anda yakin ingin menghapus mahasiswa: <?= htmlspecialchars(addcslashes($mhs['nama'])) ?> (npm: <?= htmlspecialchars($mhs['npm']) ?>)?');">Hapus</a> 
-                                <a href="">Hapus</a>
+                                 onclick="return confirm('Apakah Anda yakin ingin menghapus mahasiswa: <?= htmlspecialchars($mhs['nama'], ENT_QUOTES, 'UTF-8') ?> (npm: <?= htmlspecialchars($mhs['npm']) ?>)?');">Hapus</a> 
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -239,4 +234,4 @@ require_once __DIR__ . '/includes/header.php';
 </section>
 
 <!-- memanggil file footer.php -->
-
+<?php require_once __DIR__ . '/includes/footer.php'; ?>
