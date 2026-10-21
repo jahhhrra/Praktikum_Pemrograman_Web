@@ -9,7 +9,7 @@
 require_once __DIR__ . '/includes/functions.php';
 
 // Ambil keyword pencarian jika ada
-$page_title = 'Uji Fungsi Modular - Percobaan 1';
+$page_title = 'SIMA - Versi Produksi Kampus';
 $daftar_mahasiswa = get_all_mahasiswa();
 $total_semua = count_total_mahasiswa();
 
@@ -23,7 +23,7 @@ $total_tampil = count($daftar_mahasiswa);
 // Ambil flash message dari session jika tersedia
 $flash = get_flash_message();
 
-$page_title = 'Beranda - Sistem Informasi Data Mahasiswa';
+$page_title = 'SIMA - MOdul 4 PHP Server Side Dinamis';
 require_once __DIR__ . '/includes/header.php';
 ?>
 
